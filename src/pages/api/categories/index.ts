@@ -12,7 +12,7 @@ export default async function handler(
     const apiResponse = await client.get<Category[]>('/sites/MLB/categories');
 
     res.status(200).json(apiResponse.data);
-  } catch (error: any) {
+  } catch (error) {
     res.status(500).json({
       error: {
         message: 'Erro ao buscar categorias',
