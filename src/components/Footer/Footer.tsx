@@ -1,19 +1,39 @@
-import { Box } from '@mui/material';
+import { Box, Divider } from '@mui/material';
+import { FooterContact } from './FooterContact';
+import { Logo } from '../Logo';
 
 export function Footer() {
   return (
     <Box
       component="footer"
       sx={{
-        position: 'fixed',
-        bottom: 0,
         width: '100%',
-        textAlign: 'center',
-        padding: '1rem',
-        backgroundColor: '#f8f8f8',
+        paddingY: '3.75rem',
+        paddingX: '6rem',
+        bgcolor: 'primary.main',
+        display: { sm: 'none', md: 'block' },
       }}
     >
-      Ice Dreams ©️ 2024 • Política de Privacidade • Termos de Uso
+      <Box
+        component="section"
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+        }}
+      >
+        <Logo />
+        <FooterContact />
+      </Box>
+
+      <Divider sx={{ marginTop: '32px', marginBottom: '16px' }} />
+
+      <Box
+        component="section"
+        sx={{ color: 'black', fontSize: '0.75rem', lineHeight: '160%' }}
+      >
+        Ice Dreams ©️ 2024 • Política de Privacidade • Termos de Uso
+      </Box>
     </Box>
   );
 }

@@ -1,7 +1,8 @@
-import { Typography } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
 import { QueryClient, dehydrate } from '@tanstack/react-query';
 import { productsQueryKey, useProducts } from '@/queries';
 import { getProducts, Product } from '@/services';
+import { ProductList } from '@/components/ProductList';
 
 export async function getStaticProps() {
   const queryClient = new QueryClient();
@@ -23,20 +24,28 @@ export default function Home() {
 
   return (
     <>
-      <Typography variant="h1">Mercado B&B</Typography>
-      {isFetching && <p>Carregando...</p>}
-      {error && <p>{error.message}</p>}
-      {data && (
-        <ul>
-          {data.products.map((product: Product) => (
-            <li key={product.id}>
-              <h2>{product.title}</h2>
-              <p>{product.description}</p>
-              <p>Preço: R$ {product.price.toFixed(2)}</p>
-            </li>
-          ))}
-        </ul>
-      )}
+      <Typography
+        variant="h1"
+        sx={{
+          marginBottom: { sm: '24px', md: '40px' },
+          fontSize: '2rem',
+          lineHeight: '130%',
+        }}
+      >
+        Produtos
+      </Typography>
+      <Container
+        sx={{
+          bgcolor: 'white',
+          borderRadius: '16px',
+          paddingY: '16px',
+          paddingX: '22px',
+        }}
+      >
+        {isFetching && <p>Carregando...</p>}
+        {error && <p>{error.message}</p>}
+        {data && <ProductList products={data.products} />}
+      </Container>
     </>
   );
 }
