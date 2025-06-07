@@ -11,7 +11,7 @@ export function Footer() {
         paddingY: '3.75rem',
         paddingX: '6rem',
         bgcolor: 'primary.main',
-        display: { sm: 'none', md: 'block' },
+        display: { xs: 'none', sm: 'none', md: 'block' },
       }}
     >
       <Box

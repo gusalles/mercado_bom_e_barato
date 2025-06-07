@@ -13,9 +13,9 @@ export function Layout({ children }: LayoutProps) {
       <Box
         component="main"
         sx={{
-          marginX: { sm: '16px', md: '96px' },
-          marginTop: { sm: '16px', md: '64px' },
-          marginBottom: { sm: '16px', md: '80px' },
+          marginX: { _: '16px', md: '96px' },
+          marginTop: { _: '16px', md: '64px' },
+          marginBottom: { _: '16px', md: '80px' },
         }}
       >
         {children}

@@ -11,9 +11,12 @@ export function ProductList({ products }: ProductListProps) {
     <Box
       component="ul"
       sx={{
-        display: { sm: 'block', md: 'grid' },
+        display: 'grid',
         gap: '1rem',
-        gridTemplateColumns: 'repeat(4, 1fr)',
+        gridTemplateColumns: {
+          sm: '1fr',
+          md: 'repeat(3, 1fr)',
+        },
       }}
     >
       {products.map((product: Product) => (

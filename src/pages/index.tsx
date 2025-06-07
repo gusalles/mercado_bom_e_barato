@@ -24,19 +24,24 @@ export default function Home() {
 
   return (
     <>
-      <Typography
-        variant="h1"
-        sx={{
-          marginBottom: { sm: '24px', md: '40px' },
-          fontSize: '2rem',
-          lineHeight: '130%',
-        }}
-      >
-        Produtos
-      </Typography>
       <Container
+        component="section"
+        sx={{ marginBottom: { _: '24px', md: '40px' } }}
+      >
+        <Typography
+          variant="h1"
+          sx={{
+            fontSize: '2rem',
+            lineHeight: '130%',
+          }}
+        >
+          Produtos
+        </Typography>
+      </Container>
+      <Container
+        component="section"
         sx={{
-          bgcolor: 'white',
+          bgcolor: { _: 'transparent', md: 'white' },
           borderRadius: '16px',
           paddingY: '16px',
           paddingX: '22px',
