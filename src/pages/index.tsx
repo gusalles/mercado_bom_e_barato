@@ -1,5 +1,6 @@
 import { categoriesQueryKey, useCategories } from '@/queries';
 import { getCategories } from '@/services';
+import { Category } from '@/services/categories/categories.type';
 import {
   List,
   ListItem,
@@ -49,7 +50,7 @@ export default function Home() {
             gap: 2,
           }}
         >
-          {data.map((category: any) => (
+          {data.map((category: Category) => (
             <ListItem key={category.id}>
               <ListItemButton onClick={() => onClickCategory(category.id)}>
                 <ListItemText primary={category.name} />

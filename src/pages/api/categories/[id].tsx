@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<any>
+  res: NextApiResponse
 ) {
   try {
     const { id } = req.query;
@@ -14,9 +14,8 @@ export default async function handler(
     const apiResponse = await client.get(`/categories/${id}`);
 
     res.status(200).json(apiResponse.data);
-  } catch (error: any) {
-    console.log('error:', error);
-    res.status(error.response?.status || 500).json({
+  } catch (error) {
+    res.status(500).json({
       error: {
         message: 'Erro ao buscar categorias',
         detail: error instanceof Error ? error.message : 'Erro desconhecido',

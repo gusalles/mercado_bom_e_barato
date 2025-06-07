@@ -5,7 +5,7 @@ export async function getCategories(): Promise<Category[]> {
   try {
     const res = await axios.get<Category[]>('/api/categories');
     return res.data;
-  } catch (error) {
+  } catch (_) {
     throw new Error('Erro ao buscar categorias');
   }
 }
