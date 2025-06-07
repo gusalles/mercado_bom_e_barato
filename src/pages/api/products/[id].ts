@@ -1,4 +1,3 @@
-import { createClient } from '@/services';
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(
@@ -7,17 +6,19 @@ export default async function handler(
 ) {
   try {
     const { id } = req.query;
-    const client = createClient(req.cookies.ml_access_token);
+    const apiResponse = await fetch(`https://dummyjson.com/products/${id}`);
 
-    console.log('Fetching category with ID:', id);
+    if (!apiResponse.ok) {
+      throw new Error('Erro ao buscar produto');
+    }
 
-    const apiResponse = await client.get(`/categories/${id}`);
+    const product = await apiResponse.json();
 
-    res.status(200).json(apiResponse.data);
+    res.status(200).json({ product });
   } catch (error) {
     res.status(500).json({
       error: {
-        message: 'Erro ao buscar categorias',
+        message: 'Erro ao buscar produto',
         detail: error instanceof Error ? error.message : 'Erro desconhecido',
       },
     });
