@@ -1,7 +1,7 @@
-import { Box, Container, Typography } from '@mui/material';
+import { Container, Typography } from '@mui/material';
 import { QueryClient, dehydrate } from '@tanstack/react-query';
 import { productsQueryKey, useProducts } from '@/queries';
-import { getProducts, Product } from '@/services';
+import { getProducts } from '@/services';
 import { ProductList } from '@/components/ProductList';
 
 export async function getStaticProps() {

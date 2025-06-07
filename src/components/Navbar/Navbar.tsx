@@ -1,5 +1,4 @@
 import { Box } from '@mui/material';
-import Image from 'next/image';
 import { Logo } from '../Logo';
 
 export function Navbar() {
