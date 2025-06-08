@@ -37,8 +37,6 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <QueryClientProvider client={queryClient}>
-        {/* O HydrationBoundary é usado para hidratar o estado do React Query no lado do cliente */}
-        {/* Isso é necessário para que o estado do cache seja mantido entre as renderizações */}
         <HydrationBoundary state={pageProps.dehydratedState}>
           <ThemeProvider theme={theme}>
             <CssBaseline />

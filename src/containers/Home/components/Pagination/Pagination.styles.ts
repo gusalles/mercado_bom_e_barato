@@ -1,8 +1,16 @@
 import {
   PaginationItem as MuiPaginationItem,
+  Pagination,
+  PaginationProps,
   PaginationItemProps,
   styled,
 } from '@mui/material';
+
+export const StyledPagination = styled(Pagination)<PaginationProps>(() => ({
+  '& .MuiPaginationItem-previousNext': {
+    display: 'none',
+  },
+}));
 
 export const PaginationItem = styled(MuiPaginationItem)<PaginationItemProps>(
   ({ theme, selected }) => ({
@@ -14,6 +22,7 @@ export const PaginationItem = styled(MuiPaginationItem)<PaginationItemProps>(
     '&:hover': {
       backgroundColor: 'transparent',
     },
+
     '&.MuiPaginationItem-root': {
       width: 56,
       height: 56,
