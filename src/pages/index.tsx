@@ -3,6 +3,7 @@ import { QueryClient, dehydrate } from '@tanstack/react-query';
 import { productsQueryKey, useProducts } from '@/queries';
 import { getProducts } from '@/services';
 import { Home } from '@/containers/Home';
+import { useEffect, useState } from 'react';
 
 interface Params {
   query: {
@@ -34,11 +35,22 @@ export async function getServerSideProps(ctx: Params) {
 
 export default function HomePage({ page: initialPage }: HomePageProps) {
   const router = useRouter();
+  const [currentPage, setCurrentPage] = useState(initialPage);
 
-  const queryPage = Number(router.query.page);
-  const page = queryPage || initialPage;
+  const { data, isFetching, isLoading } = useProducts(currentPage);
 
-  const { data, isFetching, isLoading } = useProducts(page);
+  useEffect(() => {
+    const handleRouteChange = (url: string) => {
+      const query = new URLSearchParams(url.split('?')[1]);
+      const newPage = Number(query.get('page')) || 1;
+      setCurrentPage(newPage);
+    };
 
-  return <Home data={data} isLoading={isFetching || isLoading} page={page} />;
+    router.events.on('routeChangeComplete', handleRouteChange);
+    return () => router.events.off('routeChangeComplete', handleRouteChange);
+  }, []);
+
+  return (
+    <Home data={data} isLoading={isFetching || isLoading} page={currentPage} />
+  );
 }

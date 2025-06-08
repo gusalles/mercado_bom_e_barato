@@ -1,9 +1,9 @@
 import { ProductsResponse } from '@/services';
 import { Container } from '@mui/material';
+import { useRouter } from 'next/router';
 import { Pagination } from '@/components/Pagination';
 import { ProductList } from '@/components/ProductList';
 import { HomeSection, HomeTitle, PaginationContainer } from './Home.styles';
-// import { useRouter } from 'next/router';
 
 interface HomeProps {
   page: number;
@@ -12,10 +12,10 @@ interface HomeProps {
 }
 
 export function Home({ page, data, isLoading }: HomeProps) {
-  // const router = useRouter();
+  const router = useRouter();
+
   const handlePaginationRedirect = (_: unknown, value: number) => {
-    window.location.href = `/?page=${value}`;
-    // router.push('/', { query: { page: value } });
+    router.push('/', { query: { page: value } });
   };
 
   return (

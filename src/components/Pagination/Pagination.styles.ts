@@ -23,5 +23,10 @@ export const PaginationItem = styled(MuiPaginationItem)<PaginationItemProps>(
         backgroundColor: '#FFE5C7',
       },
     },
+    [theme.breakpoints.down('md')]: {
+      width: 32,
+      height: 32,
+      marginBottom: '40px',
+    },
   })
 );

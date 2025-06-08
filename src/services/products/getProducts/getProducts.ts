@@ -5,8 +5,12 @@ export async function getProducts(
   limit = 12
 ): Promise<ProductsResponse> {
   try {
-    console.log('Fetching products for page:', page);
-    const res = await fetch(`/api/products?page=${page}&limit=${limit}`);
+    const skip = (Number(page) - 1) * Number(limit);
+
+    const res = await fetch(
+      `https://dummyjson.com/products?limit=${limit}&skip=${skip}`
+    );
+
     if (!res.ok) {
       throw new Error('Erro ao buscar os produtos');
     }

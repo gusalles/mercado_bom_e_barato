@@ -5,8 +5,7 @@ export const productsQueryKey = 'products';
 
 export function useProducts(page: number) {
   return useQuery({
-    queryKey: [productsQueryKey],
+    queryKey: [productsQueryKey, page],
     queryFn: () => getProducts(page),
-    enabled: !!page,
   });
 }
