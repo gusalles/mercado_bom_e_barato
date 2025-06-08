@@ -1,8 +1,12 @@
 import { ProductsResponse } from '../types';
 
-export async function getProducts(): Promise<ProductsResponse> {
+export async function getProducts(
+  page: number,
+  limit = 12
+): Promise<ProductsResponse> {
   try {
-    const res = await fetch('/api/products');
+    console.log('Fetching products for page:', page);
+    const res = await fetch(`/api/products?page=${page}&limit=${limit}`);
     if (!res.ok) {
       throw new Error('Erro ao buscar os produtos');
     }

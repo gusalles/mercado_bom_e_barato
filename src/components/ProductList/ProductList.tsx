@@ -1,27 +1,22 @@
 import { Product } from '@/services';
-import { Box } from '@mui/material';
-import { ProductListItem } from './ProductListItem';
+import { ProductListLoading, ProductListItem } from './partials';
+import { ProductListContainer } from './ProductList.styles';
 
 interface ProductListProps {
-  products: Product[];
+  products?: Product[];
+  isLoading?: boolean;
 }
 
-export function ProductList({ products }: ProductListProps) {
+export function ProductList({ products, isLoading }: ProductListProps) {
+  const list = products || Array.from<Product>({ length: 12 });
   return (
-    <Box
-      component="ul"
-      sx={{
-        display: 'grid',
-        gap: '1rem',
-        gridTemplateColumns: {
-          sm: '1fr',
-          md: 'repeat(3, 1fr)',
-        },
-      }}
-    >
-      {products.map((product: Product) => (
-        <ProductListItem key={product.id} product={product} />
-      ))}
-    </Box>
+    <ProductListContainer>
+      {list.map((product) => {
+        if (isLoading) {
+          return <ProductListLoading key={Math.random()} />;
+        }
+        return <ProductListItem key={product.id} product={product} />;
+      })}
+    </ProductListContainer>
   );
 }

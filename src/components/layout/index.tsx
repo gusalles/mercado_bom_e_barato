@@ -1,6 +1,6 @@
 import { Footer } from '@/components/Footer';
 import { Navbar } from '@/components/Navbar';
-import { Box } from '@mui/material';
+import { Main } from './styles';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -10,16 +10,7 @@ export function Layout({ children }: LayoutProps) {
   return (
     <>
       <Navbar />
-      <Box
-        component="main"
-        sx={{
-          marginX: { _: '16px', md: '96px' },
-          marginTop: { _: '16px', md: '64px' },
-          marginBottom: { _: '16px', md: '80px' },
-        }}
-      >
-        {children}
-      </Box>
+      <Main>{children}</Main>
       <Footer />
     </>
   );

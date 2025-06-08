@@ -1,56 +1,44 @@
-import { Container, Typography } from '@mui/material';
+import { useRouter } from 'next/router';
 import { QueryClient, dehydrate } from '@tanstack/react-query';
 import { productsQueryKey, useProducts } from '@/queries';
 import { getProducts } from '@/services';
-import { ProductList } from '@/components/ProductList';
+import { Home } from '@/containers/Home';
 
-export async function getStaticProps() {
+interface Params {
+  query: {
+    page: string;
+  };
+}
+
+interface HomePageProps {
+  page: number;
+}
+
+export async function getServerSideProps(ctx: Params) {
+  const page = Number(ctx.query.page) || 1;
+
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
-    queryKey: [productsQueryKey],
-    queryFn: getProducts,
+    queryKey: [productsQueryKey, page],
+    queryFn: () => getProducts(page),
   });
 
   return {
     props: {
       dehydratedState: dehydrate(queryClient),
+      page,
     },
   };
 }
 
-export default function Home() {
-  const { data, error, isFetching } = useProducts();
+export default function HomePage({ page: initialPage }: HomePageProps) {
+  const router = useRouter();
 
-  return (
-    <>
-      <Container
-        component="section"
-        sx={{ marginBottom: { _: '24px', md: '40px' } }}
-      >
-        <Typography
-          variant="h1"
-          sx={{
-            fontSize: '2rem',
-            lineHeight: '130%',
-          }}
-        >
-          Produtos
-        </Typography>
-      </Container>
-      <Container
-        component="section"
-        sx={{
-          bgcolor: { _: 'transparent', md: 'white' },
-          borderRadius: '16px',
-          paddingY: '16px',
-          paddingX: '22px',
-        }}
-      >
-        {isFetching && <p>Carregando...</p>}
-        {error && <p>{error.message}</p>}
-        {data && <ProductList products={data.products} />}
-      </Container>
-    </>
-  );
+  const queryPage = Number(router.query.page);
+  const page = queryPage || initialPage;
+
+  const { data, isFetching, isLoading } = useProducts(page);
+
+  return <Home data={data} isLoading={isFetching || isLoading} page={page} />;
 }

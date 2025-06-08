@@ -20,6 +20,9 @@ export const theme = createTheme({
       primary: '#262626',
       secondary: '#4A4A4A',
     },
+    grey: {
+      '200': '#E6E6E6',
+    },
     divider: '#000000',
   },
   typography: {
@@ -31,14 +34,6 @@ export const theme = createTheme({
     h2: {
       fontWeight: 700,
       fontSize: '2rem',
-    },
-    body1: {
-      fontSize: '1rem',
-      fontWeight: 600,
-    },
-    body2: {
-      fontSize: '0.75rem',
-      fontWeight: 400,
     },
   },
   components: {
