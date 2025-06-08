@@ -4,6 +4,7 @@ export type Product = {
   description: string;
   price: number;
   discountPercentage: number;
+  warrantyInformation: string;
   rating: number;
   stock: number;
   brand: string;

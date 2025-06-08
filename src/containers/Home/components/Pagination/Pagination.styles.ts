@@ -6,8 +6,6 @@ import {
 
 export const PaginationItem = styled(MuiPaginationItem)<PaginationItemProps>(
   ({ theme, selected }) => ({
-    width: 56,
-    height: 56,
     backgroundColor: 'transparent',
     color: selected ? '#61330F' : theme.palette.text.primary,
     fontSize: '1rem',
@@ -15,6 +13,14 @@ export const PaginationItem = styled(MuiPaginationItem)<PaginationItemProps>(
 
     '&:hover': {
       backgroundColor: 'transparent',
+    },
+    '&.MuiPaginationItem-root': {
+      width: 56,
+      height: 56,
+      [theme.breakpoints.down('md')]: {
+        width: 32,
+        height: 32,
+      },
     },
     '&.Mui-selected': {
       backgroundColor: '#FFE5C7',
@@ -24,9 +30,7 @@ export const PaginationItem = styled(MuiPaginationItem)<PaginationItemProps>(
       },
     },
     [theme.breakpoints.down('md')]: {
-      width: 32,
-      height: 32,
-      marginBottom: '40px',
+      marginBottom: '24px',
     },
   })
 );

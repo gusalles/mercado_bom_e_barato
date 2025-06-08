@@ -1,15 +1,17 @@
+import { MAX_ITEMS_PER_PAGE } from '@/constants/pagination';
 import { ProductsResponse } from '../types';
 
 export async function getProducts(
-  page: number,
-  limit = 12
+  page?: number,
+  shouldLimitItems = true
 ): Promise<ProductsResponse> {
   try {
-    const skip = (Number(page) - 1) * Number(limit);
+    const queryParams =
+      shouldLimitItems && page
+        ? `?limit=${MAX_ITEMS_PER_PAGE}&skip=${(page - 1) * MAX_ITEMS_PER_PAGE}`
+        : '';
 
-    const res = await fetch(
-      `https://dummyjson.com/products?limit=${limit}&skip=${skip}`
-    );
+    const res = await fetch(`https://dummyjson.com/products${queryParams}`);
 
     if (!res.ok) {
       throw new Error('Erro ao buscar os produtos');

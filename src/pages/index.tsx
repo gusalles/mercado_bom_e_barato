@@ -1,9 +1,9 @@
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { QueryClient, dehydrate } from '@tanstack/react-query';
-import { productsQueryKey, useProducts } from '@/queries';
+import { productsQueryKey, useProducts } from '@/queries/products';
 import { getProducts } from '@/services';
-import { Home } from '@/containers/Home';
-import { useEffect, useState } from 'react';
+import { HomeContainer } from '@/containers/Home';
 
 interface Params {
   query: {
@@ -35,6 +35,7 @@ export async function getServerSideProps(ctx: Params) {
 
 export default function HomePage({ page: initialPage }: HomePageProps) {
   const router = useRouter();
+
   const [currentPage, setCurrentPage] = useState(initialPage);
 
   const { data, isFetching, isLoading } = useProducts(currentPage);
@@ -51,6 +52,10 @@ export default function HomePage({ page: initialPage }: HomePageProps) {
   }, []);
 
   return (
-    <Home data={data} isLoading={isFetching || isLoading} page={currentPage} />
+    <HomeContainer
+      data={data}
+      isLoading={isFetching || isLoading}
+      page={currentPage}
+    />
   );
 }

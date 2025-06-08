@@ -30,14 +30,6 @@ export const theme = createTheme({
   },
   typography: {
     fontFamily: inter.style.fontFamily,
-    h1: {
-      fontWeight: 700,
-      fontSize: '3rem',
-    },
-    h2: {
-      fontWeight: 700,
-      fontSize: '2rem',
-    },
   },
   components: {
     MuiCssBaseline: {

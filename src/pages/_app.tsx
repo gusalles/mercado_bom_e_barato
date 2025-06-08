@@ -13,8 +13,21 @@ import { ThemeProvider, CssBaseline } from '@mui/material';
 import { theme } from '@/styles/theme';
 import { Layout } from '@/components/layout';
 
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
 export default function App({ Component, pageProps }: AppProps) {
-  const [queryClient] = useState(() => new QueryClient());
+  const [queryClient] = useState(
+    () =>
+      new QueryClient({
+        defaultOptions: {
+          queries: {
+            staleTime: 60 * 1000,
+          },
+        },
+      })
+  );
 
   return (
     <AppCacheProvider>
