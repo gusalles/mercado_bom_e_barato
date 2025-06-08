@@ -1,5 +1,5 @@
 import { Product } from '@/services';
-import { ProductListLoading, ProductListItem } from './partials';
+import { ProductListLoading, ProductListItem } from './components';
 import { ProductListContainer } from './ProductList.styles';
 
 interface ProductListProps {

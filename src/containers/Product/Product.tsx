@@ -1,6 +1,6 @@
 import { Product } from '@/services';
 import { Carousel } from '@/components/Carousel';
-import { ProductDetails } from './components';
+import { ProductDetails, ProductLoading } from './components';
 import {
   ImageContainer,
   DataContainer,
@@ -41,5 +41,5 @@ export function ProductContainer({
       </>
     );
 
-  return <p>Carregando...</p>;
+  return <ProductLoading />;
 }
