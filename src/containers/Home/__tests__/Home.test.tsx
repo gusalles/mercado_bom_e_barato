@@ -7,6 +7,8 @@ import {
   paginationMock,
 } from '../__mocks__/home.mocks';
 
+import routerMock from 'next-router-mock';
+
 describe('HomePage', () => {
   it('should render products list', () => {
     renderWithClient(<HomeContainer {...loadedProductsMock} />);
@@ -25,7 +27,7 @@ describe('HomePage', () => {
     expect(loading.length > 1).toBeTruthy();
   });
 
-  it('should show error page when get error on getting products', () => {
+  it('should show error on trying to load products list', () => {
     renderWithClient(<HomeContainer {...errorOnLoadProductsMock} />);
     const title = screen.getByRole('heading', {
       name: /Não foi possível carregar os produtos./i,
@@ -34,7 +36,7 @@ describe('HomePage', () => {
     expect(title).toBeInTheDocument();
   });
 
-  it('should navitage between products pages', () => {
+  it('should navigate between products pages', () => {
     renderWithClient(<HomeContainer {...paginationMock} />);
 
     const firstProductTitle = loadedProductsMock.data?.products[0].title;
@@ -51,5 +53,15 @@ describe('HomePage', () => {
     const secondProduct = screen.getByText(`${secondProductTitle}`);
 
     expect(secondProduct).toBeInTheDocument();
+  });
+
+  it('should redirect to product details page when click in product button', async () => {
+    renderWithClient(<HomeContainer {...loadedProductsMock} />);
+
+    const buttons = screen.getAllByRole('button', { name: /Ver mais/i });
+
+    await userEvent.click(buttons[0]);
+
+    expect(routerMock.asPath).toEqual('/products/1');
   });
 });

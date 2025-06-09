@@ -45,9 +45,13 @@ export async function getStaticProps(ctx: Params) {
 }
 
 export default function ProductPage({ id }: ProductPageProps) {
-  const { data, isFetching, isLoading } = useProduct(Number(id));
+  const { data, isFetching, isLoading, error } = useProduct(Number(id));
 
   return (
-    <ProductContainer product={data} isLoading={isFetching || isLoading} />
+    <ProductContainer
+      product={data}
+      isLoading={isFetching || isLoading}
+      hasError={!!error}
+    />
   );
 }

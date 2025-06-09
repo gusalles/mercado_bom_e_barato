@@ -1,12 +1,9 @@
 import { ProductsResponse } from '@/services';
 import { Container } from '@mui/material';
 import { useRouter } from 'next/router';
-import {
-  HomeError,
-  Pagination,
-  ProductList,
-} from '@/containers/Home/components';
+import { Pagination, ProductList } from '@/containers/Home/components';
 import { HomeSection, HomeTitle, PaginationContainer } from './Home.styles';
+import { GenericError } from '../shared';
 
 export interface HomeContainerProps {
   page: number;
@@ -31,7 +28,8 @@ export function HomeContainer({
     return Math.ceil(total / maxItemsPerPage);
   };
 
-  if (hasError) return <HomeError />;
+  if (hasError)
+    return <GenericError message="Não foi possível carregar os produtos." />;
 
   return (
     <Container>

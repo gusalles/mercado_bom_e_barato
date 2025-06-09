@@ -16,7 +16,7 @@ export function ProductLoading() {
       <Container disableGutters>
         <ImageLoading variant="rounded" />
       </Container>
-      <DataContainer>
+      <DataContainer data-testid="product-loading">
         <TitleLoading variant="text" />
         <DetailsTitleLoading variant="text" />
         <DetailsContainerLoading>

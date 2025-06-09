@@ -10,16 +10,24 @@ import {
   ProductDescriptionTitle,
   ProductDescription,
 } from './Product.types';
+import { GenericError } from '../shared';
 
-interface ProductContainerProps {
+export interface ProductContainerProps {
   product?: Product;
   isLoading: boolean;
+  hasError?: boolean;
 }
 
 export function ProductContainer({
   product,
   isLoading,
+  hasError,
 }: ProductContainerProps) {
+  if (hasError)
+    return (
+      <GenericError message="Não foi possível carregar as informações do produto." />
+    );
+
   if (!isLoading && product)
     return (
       <>
