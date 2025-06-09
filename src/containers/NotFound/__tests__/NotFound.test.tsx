@@ -2,7 +2,7 @@ import { renderWithClient, screen } from '@/utils/test-utils';
 import { NotFoundContainer } from '../NotFound';
 
 describe('NotFoundPage', () => {
-  it('should render products list', () => {
+  it('should show not fount message', () => {
     renderWithClient(<NotFoundContainer />);
 
     const title = screen.getByRole('heading', {

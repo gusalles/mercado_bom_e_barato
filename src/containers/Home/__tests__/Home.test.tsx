@@ -13,8 +13,8 @@ describe('HomePage', () => {
   it('should render products list', () => {
     renderWithClient(<HomeContainer {...loadedProductsMock} />);
 
-    const productTitle = loadedProductsMock.data?.products[0].title;
-    const product = screen.getByText(`${productTitle}`);
+    const productTitle = loadedProductsMock.data?.products[0].title ?? '';
+    const product = screen.getByText(productTitle);
 
     expect(product).toBeInTheDocument();
   });

@@ -12,7 +12,7 @@ describe('ProductPage', () => {
     renderWithClient(<ProductContainer {...loadedProductDetailsMock} />);
 
     const productDescription = firstProduct.description;
-    const product = screen.getByText(`${productDescription}`);
+    const product = screen.getByText(productDescription);
 
     expect(product).toBeInTheDocument();
   });
