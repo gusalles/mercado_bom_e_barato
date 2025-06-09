@@ -2,16 +2,26 @@ import { ProductsResponse } from '@/services';
 import { Container } from '@mui/material';
 import { useRouter } from 'next/router';
 import { MAX_ITEMS_PER_PAGE } from '@/constants/pagination';
-import { Pagination, ProductList } from '@/containers/Home/components';
+import {
+  HomeError,
+  Pagination,
+  ProductList,
+} from '@/containers/Home/components';
 import { HomeSection, HomeTitle, PaginationContainer } from './Home.styles';
 
-interface HomeContainerProps {
+export interface HomeContainerProps {
   page: number;
   isLoading: boolean;
+  hasError?: boolean;
   data?: ProductsResponse;
 }
 
-export function HomeContainer({ page, data, isLoading }: HomeContainerProps) {
+export function HomeContainer({
+  page,
+  data,
+  isLoading,
+  hasError,
+}: HomeContainerProps) {
   const router = useRouter();
 
   const handlePaginationRedirect = (_: unknown, value: number) => {
@@ -25,6 +35,8 @@ export function HomeContainer({ page, data, isLoading }: HomeContainerProps) {
 
     return Math.ceil(total / itemsLoaded);
   };
+
+  if (hasError) return <HomeError />;
 
   return (
     <Container>

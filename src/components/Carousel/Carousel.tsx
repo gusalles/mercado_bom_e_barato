@@ -15,7 +15,7 @@ interface CarouselProps {
   alt: string;
 }
 
-export default function Carousel({ images, alt }: CarouselProps) {
+export function Carousel({ images, alt }: CarouselProps) {
   return (
     <StyledCarousel
       loop

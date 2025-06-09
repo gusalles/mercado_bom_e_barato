@@ -38,7 +38,7 @@ export default function HomePage({ page: initialPage }: HomePageProps) {
 
   const [currentPage, setCurrentPage] = useState(initialPage);
 
-  const { data, isFetching, isLoading } = useProducts(currentPage);
+  const { data, isFetching, isLoading, error } = useProducts(currentPage);
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
@@ -55,6 +55,7 @@ export default function HomePage({ page: initialPage }: HomePageProps) {
     <HomeContainer
       data={data}
       isLoading={isFetching || isLoading}
+      hasError={!!error}
       page={currentPage}
     />
   );
