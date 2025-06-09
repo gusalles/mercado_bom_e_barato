@@ -1,7 +1,6 @@
 import { ProductsResponse } from '@/services';
 import { Container } from '@mui/material';
 import { useRouter } from 'next/router';
-import { MAX_ITEMS_PER_PAGE } from '@/constants/pagination';
 import {
   HomeError,
   Pagination,
@@ -28,12 +27,8 @@ export function HomeContainer({
     router.push('/', { query: { page: value } });
   };
 
-  const getTotalPages = (itemsLoaded: number, total: number): number => {
-    if (itemsLoaded < MAX_ITEMS_PER_PAGE) {
-      return Math.ceil(total / MAX_ITEMS_PER_PAGE);
-    }
-
-    return Math.ceil(total / itemsLoaded);
+  const getTotalPages = (maxItemsPerPage: number, total: number): number => {
+    return Math.ceil(total / maxItemsPerPage);
   };
 
   if (hasError) return <HomeError />;
@@ -46,7 +41,7 @@ export function HomeContainer({
         {!isLoading && data && (
           <PaginationContainer>
             <Pagination
-              count={getTotalPages(data!.limit, data!.total)}
+              count={getTotalPages(data!.maxItensPerPage, data!.total)}
               page={page}
               shape="rounded"
               onChange={handlePaginationRedirect}

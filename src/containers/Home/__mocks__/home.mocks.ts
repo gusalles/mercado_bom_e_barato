@@ -49,6 +49,7 @@ export const loadedProductsMock: HomeContainerProps = {
   data: {
     limit: 2,
     total: 2,
+    maxItensPerPage: 2,
     skip: 0,
     products: productsMock,
   },
@@ -61,6 +62,7 @@ export const paginationMock: HomeContainerProps = {
   data: {
     limit: 1,
     total: 2,
+    maxItensPerPage: 1,
     skip: 0,
     products: productsMock,
   },

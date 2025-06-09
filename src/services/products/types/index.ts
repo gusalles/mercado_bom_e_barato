@@ -18,4 +18,5 @@ export type ProductsResponse = {
   total: number;
   skip: number;
   limit: number;
+  maxItensPerPage: number;
 };

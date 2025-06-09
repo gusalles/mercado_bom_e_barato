@@ -13,7 +13,7 @@ interface ProductPageProps {
 }
 
 export async function getStaticPaths() {
-  const res = await getProducts(undefined, false);
+  const res = await getProducts();
 
   const paths = res.products.map((product: Product) => ({
     params: { id: product.id.toString() },

@@ -9,7 +9,7 @@ import {
 
 export function ProductListLoading() {
   return (
-    <LoadingContainer>
+    <LoadingContainer data-testid="products-loading">
       <ImageLoading variant="rounded" />
       <LoadingContent>
         <TitleLoading variant="text" />
