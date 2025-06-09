@@ -17,9 +17,7 @@ export async function getProducts(
     const data: ProductsResponse = await res.json();
 
     return { ...data, maxItensPerPage: limit };
-  } catch (error) {
-    throw new Error(
-      `Erro ao buscar os produtos: ${error instanceof Error ? error.message : 'Erro desconhecido'}`
-    );
+  } catch {
+    throw new Error('Erro ao buscar os produtos');
   }
 }

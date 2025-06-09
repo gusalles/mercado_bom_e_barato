@@ -1,9 +1,6 @@
 import { Product } from '@/services';
 import { HomeContainerProps } from '../Home';
-import {
-  firstProduct,
-  secondProduct,
-} from '@/containers/Product/__mocks__/product.mocks';
+import { firstProduct, secondProduct } from '@/utils/__mocks__/product.mocks';
 
 const productsMock: Product[] = [firstProduct, secondProduct];
 

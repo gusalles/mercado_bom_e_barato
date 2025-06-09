@@ -1,9 +1,6 @@
 import { render, screen } from '@/utils/test-utils';
 import { Carousel } from '../Carousel';
-import {
-  firstProduct,
-  secondProduct,
-} from '@/containers/Product/__mocks__/product.mocks';
+import { firstProduct, secondProduct } from '@/utils/__mocks__/product.mocks';
 
 describe('Carousel', () => {
   it('should render', () => {

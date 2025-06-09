@@ -1,7 +1,7 @@
 import nock from 'nock';
 import { renderHook, waitFor, ReactQueryWrapper } from '@/utils/test-utils';
-import { firstProduct } from '@/containers/Product/__mocks__/product.mocks';
 import { useProduct } from '../useProduct';
+import { firstProduct } from '@/utils/__mocks__/product.mocks';
 
 describe('useProduct', () => {
   it('should return a product when de request succeeded', async () => {
@@ -18,7 +18,7 @@ describe('useProduct', () => {
 
   it('should return undefined when the product was not found', async () => {
     nock('https://dummyjson.com')
-      .get('/products/560')
+      .get('/products/400')
       .reply(404, { message: "Product with id '400' not found" });
 
     const { result } = renderHook(() => useProduct(400), {

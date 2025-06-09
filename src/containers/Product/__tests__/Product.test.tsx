@@ -1,11 +1,11 @@
 import { renderWithClient, screen } from '@/utils/test-utils';
 import { ProductContainer } from '../Product';
 import {
-  firstProduct,
   loadedProductDetailsMock,
   loadingProductDetailsMock,
   errorOnLoadProductDetailsMock,
-} from '../__mocks__/product.mocks';
+} from '../__mocks__/ProductContainer.mocks';
+import { firstProduct } from '@/utils/__mocks__/product.mocks';
 
 describe('ProductPage', () => {
   it('should render product details', () => {

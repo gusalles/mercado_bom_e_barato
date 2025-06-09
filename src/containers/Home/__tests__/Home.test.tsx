@@ -5,7 +5,7 @@ import {
   loadedProductsMock,
   loadingProductsMock,
   paginationMock,
-} from '../__mocks__/home.mocks';
+} from '../__mocks__/HomeContainer.mocks';
 
 import routerMock from 'next-router-mock';
 

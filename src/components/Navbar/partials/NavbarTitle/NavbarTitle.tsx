@@ -14,5 +14,5 @@ export function NavbarTitle() {
     productId,
   ]);
 
-  return <Title>{product!.title}</Title>;
+  return <Title>{product?.title}</Title>;
 }

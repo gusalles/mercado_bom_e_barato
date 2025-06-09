@@ -1,5 +1,4 @@
-import { Product } from '@/services';
-import { ProductContainerProps } from '../Product';
+import { Product, ProductsResponse } from '@/services';
 
 export const firstProduct: Product = {
   id: 1,
@@ -41,20 +40,10 @@ export const secondProduct: Product = {
   ],
 };
 
-export const loadedProductDetailsMock: ProductContainerProps = {
-  isLoading: false,
-  hasError: false,
-  product: firstProduct,
-};
-
-export const loadingProductDetailsMock: ProductContainerProps = {
-  isLoading: true,
-  hasError: false,
-  product: firstProduct,
-};
-
-export const errorOnLoadProductDetailsMock: ProductContainerProps = {
-  isLoading: false,
-  hasError: true,
-  product: firstProduct,
+export const productResponseMock: ProductsResponse = {
+  limit: 2,
+  total: 2,
+  maxItensPerPage: 2,
+  skip: 0,
+  products: [firstProduct, secondProduct],
 };

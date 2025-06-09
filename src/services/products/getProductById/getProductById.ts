@@ -9,9 +9,7 @@ export async function getProductById(id: number) {
     const data: Product = await res.json();
 
     return data;
-  } catch (error) {
-    throw new Error(
-      `Erro ao buscar o produto com ID ${id}: ${error instanceof Error ? error.message : 'Erro desconhecido'}`
-    );
+  } catch {
+    throw new Error(`Erro ao buscar o produto com ID ${id}`);
   }
 }

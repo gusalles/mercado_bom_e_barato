@@ -1,21 +1,9 @@
 import nock from 'nock';
 import { renderHook, waitFor, ReactQueryWrapper } from '@/utils/test-utils';
-import {
-  firstProduct,
-  secondProduct,
-} from '@/containers/Product/__mocks__/product.mocks';
 import { useProducts } from '../useProducts';
-import { ProductsResponse } from '@/services';
+import { productResponseMock } from '@/utils/__mocks__/product.mocks';
 
 describe('useProducts', () => {
-  const productResponseMock: ProductsResponse = {
-    limit: 2,
-    total: 2,
-    maxItensPerPage: 2,
-    skip: 0,
-    products: [firstProduct, secondProduct],
-  };
-
   it('should return a products list when de request succeeded', async () => {
     nock('https://dummyjson.com')
       .get('/products?limit=2&skip=0')
