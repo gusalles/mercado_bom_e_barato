@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Logo > should render with default dimensions 1`] = `
+<img
+  alt="Logo Mercado B&B"
+  data-nimg="1"
+  decoding="async"
+  height="40"
+  src="/logo.svg"
+  style="color: transparent;"
+  width="145"
+/>
+`;

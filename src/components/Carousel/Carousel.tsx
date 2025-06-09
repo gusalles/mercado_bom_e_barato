@@ -22,6 +22,7 @@ export function Carousel({ images, alt }: CarouselProps) {
       pagination
       autoplay={{ delay: 3000 }}
       modules={[Pagination, Autoplay]}
+      data-testid="carousel"
     >
       {images.map((image: string, index: number) => (
         <Slide key={index}>

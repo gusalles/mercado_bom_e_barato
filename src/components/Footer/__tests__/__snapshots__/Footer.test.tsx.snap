@@ -1,0 +1,78 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Footer > should render 1`] = `
+<footer
+  class="css-gqnc24"
+>
+  <section
+    class="css-69i1ev"
+  >
+    <img
+      alt="Logo Mercado B&B"
+      data-nimg="1"
+      decoding="async"
+      height="40"
+      src="/logo.svg"
+      style="color: transparent;"
+      width="145"
+    />
+    <div
+      class="css-1bt2vw6"
+    >
+      Acompanhe nossas redes sociais:
+      <img
+        alt="YouTube"
+        data-nimg="1"
+        decoding="async"
+        height="24"
+        loading="lazy"
+        src="/youtube.svg"
+        style="color: transparent;"
+        width="24"
+      />
+      <img
+        alt="Spotify"
+        data-nimg="1"
+        decoding="async"
+        height="24"
+        loading="lazy"
+        src="/spotify.svg"
+        style="color: transparent;"
+        width="24"
+      />
+      <img
+        alt="Facebook"
+        data-nimg="1"
+        decoding="async"
+        height="24"
+        loading="lazy"
+        src="/facebook.svg"
+        style="color: transparent;"
+        width="24"
+      />
+      <img
+        alt="Instagram"
+        data-nimg="1"
+        decoding="async"
+        height="24"
+        loading="lazy"
+        src="/instagram.svg"
+        style="color: transparent;"
+        width="24"
+      />
+    </div>
+  </section>
+  <hr
+    class="MuiDivider-root MuiDivider-fullWidth css-1c1tr4e-MuiDivider-root"
+  />
+  <section
+    class="css-69i1ev"
+  >
+    <p
+      class="css-12cepmv"
+    >
+      Ice Dreams ©️ 2024 • Política de Privacidade • Termos de Uso
+    </p>
+  </section>
+</footer>
+`;

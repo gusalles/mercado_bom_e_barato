@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Layout > should render 1`] = `
+<main
+  class="css-16bb68u"
+>
+  Elemento filho
+</main>
+`;
