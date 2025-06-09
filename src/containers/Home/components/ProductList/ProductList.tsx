@@ -13,7 +13,7 @@ export function ProductList({ products, isLoading }: ProductListProps) {
     <ProductListContainer>
       {list.map((product) => {
         if (isLoading) {
-          return <ProductListLoading key={Math.random()} />;
+          return <ProductListLoading key={product.id} />;
         }
         return <ProductListItem key={product.id} product={product} />;
       })}

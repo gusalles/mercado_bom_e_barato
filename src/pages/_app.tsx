@@ -13,10 +13,6 @@ import { ThemeProvider, CssBaseline } from '@mui/material';
 import { theme } from '@/styles/theme';
 import { Layout } from '@/components/layout';
 
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-
 export default function App({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(
     () =>

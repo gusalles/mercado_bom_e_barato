@@ -12,6 +12,7 @@ export function Logo({ width = 145, height = 40 }: LogoProps) {
       alt="Logo Mercado B&B"
       width={width}
       height={height}
+      priority
     />
   );
 }

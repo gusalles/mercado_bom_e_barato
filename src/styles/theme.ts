@@ -5,6 +5,7 @@ const inter = Inter({
   weight: ['400', '500', '600', '700'],
   subsets: ['latin'],
   display: 'swap',
+  preload: true,
 });
 
 export const theme = createTheme({

@@ -31,7 +31,7 @@ export function ProductListItem({ product }: ProductListItemProps) {
         alt={product.title}
         width={isMobile ? 100 : 200}
         height={isMobile ? 100 : 200}
-        loading="lazy"
+        priority
       />
       <ProductListItemSection>
         <ProductListItemTitle>{product.title}</ProductListItemTitle>
